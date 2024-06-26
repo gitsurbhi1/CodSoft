@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class NumberGame{
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
-        int no_of_guesses=0;
         int no_of_rounds_won=0;
         int no_of_rounds_played=0;
         System.out.println("! WELCOME TO THE NUMBER GUSSING GAME !\nYou have to guess the number in 10 chances to win the round");
@@ -11,9 +10,10 @@ public class NumberGame{
             no_of_rounds_played++;
             Random random = new Random();
             int computerNumber = random.nextInt(100)+1;
+            System.out.println("Guess a number from 1 to 100");
+            int no_of_guesses=0;
             while(true){
-                 System.out.println("Guess a number from 1 to 100");
-            int yourGuessedNumber=sc.nextInt();
+                int yourGuessedNumber=sc.nextInt();
                 no_of_guesses++;
                     if(computerNumber==yourGuessedNumber){
                         System.out.println("Hurray! You guessed it right in "+ no_of_guesses+"guesses.\n");
@@ -21,9 +21,9 @@ public class NumberGame{
                         no_of_rounds_won++;
                         break;
                     }else if(computerNumber>yourGuessedNumber&&no_of_guesses<10){
-                        System.out.println("Oops! Too low.\nTry to guess high.\n");
+                        System.out.println("Oops! Too low.\nTry to guess high.\nGuess again!\n");
                     }else if(computerNumber<yourGuessedNumber&&no_of_guesses<10){
-                        System.out.println("Oops! Too high.\nTry to guess low.\n");
+                        System.out.println("Oops! Too high.\nTry to guess low.\nGuess again!\n");
                     }else{
                         System.out.println("! GAME OVER !\n");
                         break;
